@@ -1,0 +1,24 @@
+{
+  "name": "chat-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsnd --respawn src/index.ts",
+    "build": "tsc",
+    "start": "echo 'KLUM'",
+    "test": "mocha -r ts-node/register src/**/*.test.ts",
+    "test:jest": "jest src/foo.spec.ts"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.15",
+    "@types/node": "^18.11.17",
+        "@types/cors": "^2.8.13",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+        "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
