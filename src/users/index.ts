@@ -14,7 +14,7 @@ users.get('/', (req: Request, res: Response) => {
 
 users.get('/:id', (req: Request, res: Response) => {
     const id = req.params?.id;
-    const user = mockUserDetails.filter(user=>user.id===+id)
+    const user = mockUserDetails.filter(user=>user.id===+id);
     res.send(user);
 });
 
