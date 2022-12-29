@@ -12,4 +12,10 @@ users.get('/', (req: Request, res: Response) => {
     res.send(reduceUsers());
 });
 
+users.get('/:id', (req: Request, res: Response) => {
+    const id = req.params?.id;
+    const user = mockUserDetails.filter(user=>user.id===+id)
+    res.send(user);
+});
+
 export default users;
