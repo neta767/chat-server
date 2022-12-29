@@ -1,6 +1,6 @@
 # chat-server
 
-This app is a backend implementation for a chat application, using mock data.
+This is a backend implementation for a chat application, using mock data.
 
 ## Instructions
 
