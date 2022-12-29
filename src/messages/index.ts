@@ -6,6 +6,9 @@ import bodyParser from 'body-parser';
 
 export const messages = Router();
 
+/**
+ * transforms the messages so that they also include the author name
+ */
 function addAuthorNameToMessages(): Message[] {
     return mockMessages.map((message: Message) => {
         const author = mockUserDetails.find(user => user.id === message.authorId);
@@ -14,21 +17,28 @@ function addAuthorNameToMessages(): Message[] {
     });
 }
 
+/**
+ * get the full list of messages
+ */
 messages.get('/', (req: Request, res: Response) => {
     res.send(addAuthorNameToMessages());
 });
 
+/**
+ * adds a new message
+ */
 messages.post('/', bodyParser.json(), (req: Request, res: Response) => {
     const message: Message = req.body;
     mockMessages.push({
         ...message,
         likes: [],
-        authorName: mockUserDetails.find(user => user.id === message.authorId).name,
-        status: 'pending'
+        authorName: mockUserDetails.find(user => user.id === message.authorId).name
     })
     res.status(200).send()
 });
-
+/**
+ * changes the "likes" array of a message
+ */
 messages.post('/:id', bodyParser.json(), (req: Request, res: Response) => {
     const id = req.params?.id;
     const {userId, like} = req.body;
