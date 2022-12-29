@@ -39,7 +39,7 @@ messages.post('/', bodyParser.json(), (req: Request, res: Response) => {
 /**
  * changes the "likes" array of a message
  */
-messages.post('/:id', bodyParser.json(), (req: Request, res: Response) => {
+messages.post('/:id', bodyParser.json(), (req: Request) => {
     const id = req.params?.id;
     const {userId, like} = req.body;
     const message = mockMessages.find(message => message.id === +id);

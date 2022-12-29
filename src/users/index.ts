@@ -1,12 +1,13 @@
 import {Request, Response, Router} from "express";
 import {mockUserDetails} from "../assets/mockUserDetails";
+import {User} from "../types/user";
 
 export const users = Router();
 
 /**
  * reduce MockUserDetails to a list of id and name only
  */
-function reduceUsers() {
+function reduceUsers(): User[] {
     return mockUserDetails.reduce((accumulator, currentValue) => {
         accumulator.push({"name": currentValue.name, "id": currentValue.id});
         return accumulator;
